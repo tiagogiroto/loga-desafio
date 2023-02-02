@@ -3,6 +3,8 @@ Tecnologias: HTML, CSS, JS, jQuery, Bootstrap 5
 A loja deve conter as seguintes funcionalidades:
 
 Documentação
+
+
 Autenticação  
 URL parameters 
 

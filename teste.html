@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function showImage() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://picsum.photos/200/300", true);
+        xhr.responseType = "blob";
+        xhr.onload = function (e) {
+          if (xhr.status === 200) {
+            var img = document.createElement("img");
+            img.src = URL.createObjectURL(xhr.response);
+            document.body.appendChild(img);
+          }
+        };
+        xhr.send();
+      }
+    </script>
+  </head>
+  <body onload="showImage()">
+  </body>
+</html>

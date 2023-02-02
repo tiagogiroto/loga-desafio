@@ -1,120 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Página inicial</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Página inicial</title>
 </head>
-<body>
-    
-    <div class="container">
-        <div class="row g-3 ">
-            <span class="user">Olá, {name}</span>
-            <div class="col cart-zone">
-                <span class="cart">Carrinho</span>
-            </div>
-            <input type="text" placeholder="Digite o nome do produto" >
-        </div>
-        <div class="row g-3 " >
-            <div class="col-md-3 col-lg-4 col-xl-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{dados principais}</h5>
-                      <p class="card-text">{descricao}</p>
-                      <p class="card-text">{Codigo de barras}</p>
-                      <p class="card-text">{quantidade em estoque}</p>
-                      <p class="card-text">{valor do produto}</p>
-                    </div>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3 col-lg-4 col-xl-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{dados principais}</h5>
-                      <p class="card-text">{descricao}</p>
-                      <p class="card-text">{Codigo de barras}</p>
-                      <p class="card-text">{quantidade em estoque}</p>
-                      <p class="card-text">{valor do produto}</p>
-                    </div>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3 col-lg-4 col-xl-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{dados principais}</h5>
-                      <p class="card-text">{descricao}</p>
-                      <p class="card-text">{Codigo de barras}</p>
-                      <p class="card-text">{quantidade em estoque}</p>
-                      <p class="card-text">{valor do produto}</p>
-                    </div>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3 col-lg-4 col-xl-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{dados principais}</h5>
-                      <p class="card-text">{descricao}</p>
-                      <p class="card-text">{Codigo de barras}</p>
-                      <p class="card-text">{quantidade em estoque}</p>
-                      <p class="card-text">{valor do produto}</p>
-                    </div>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3 col-lg-5 col-xl-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{dados principais}</h5>
-                      <p class="card-text">{descricao}</p>
-                      <p class="card-text">{Codigo de barras}</p>
-                      <p class="card-text">{quantidade em estoque}</p>
-                      <p class="card-text">{valor do produto}</p>
-                    </div>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                    </div>
-                  </div>
-            </div>
-        </div>
+
+<body onload="onLoadCard()">
+
+  <div class="container">
+    <div class="row g-3 ">
+      <span class="user">Olá, {{person_data.name}}</span>
+      <div class="col cart-zone">
+        <span class="cart">Carrinho</span>
       </div>
+      <input type="text" placeholder="Digite o nome do produto">
+    </div>
+    <div class="row g-3 " id="card-generate">
+      <!-- card generate inside -->
+    </div>
+  </div>
+
+  <div class="teste">
+    <div id="demo">
+
+    </div>
+  </div>
+
 </body>
 
-<style>
-    .user{
-        text-align: center;
-    }
-    .search-area{
-        text-align: center;
+<script>
+
+  var person_data = {
+    name: "Tiago"
+  };
+  var data = [
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+    {
+      img: "https://picsum.photos/200/300",
+      dados_principais:'dados principais',
+      descricao: 'descricao',
+      codigo_de_barras: '12356465',
+      quantidade: '12',
+      valor_produto: '25.90',
+      imagem: 'https://picsum.photos/200/300'
+    },
+  ]
+
+  function onLoadCard() {
+ 
+
+      var cardLoader = '';
+
+      for (var i = 0; i < data.length; i++) {
         
-        }
-    .card{
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-    .card-title{
-        text-align: center;
-    }
-    .cart-zone{
-        text-align: end;
-    }
+        cardLoader += 
+
+        '<div class="col-md-3 col-lg-5 col-xl-3 card-generate">'+
+        ' <div class="card" style="width: 18rem;">' +
+            '<img src="'+data[i].imagem+'" class="card-img-top card-img" alt="...">' +
+            '<div class="data-card">' +
+            '<div class="card-body"> '+
+              '<h5 class="card-title">'+ data[i].dados_principais+'</h5>'+
+              '<p class="card-text">'+data[i].descricao+'</p>'+
+              '<p class="card-text">'+data[i].codigo_de_barras+'</p>'+
+              '<p class="card-text">'+data[i].quantidade+'</p>'+
+              '<p class="card-text">'+data[i].valor_produto+'</p>'+
+              '</div>' +
+              '</div>'+
+              '<a href="#" class="card-link">Adicionar ao carrinho</a>'+  
+          '</div>' +
+          '</div>'
+        
+      }
+      document.getElementById('card-generate').innerHTML = cardLoader;
+
+
+  }
+
+</script>
+
+<style>
+  .card-body{
+    background-color: #fff;
+    margin-top: 5px;
+  }
+  .card{
+    background-color: #f5f3f3 !important;
+  }
+  .card-link{
+    text-align: center;
+    margin: 15px;
+  }
+  .data-card{
+    margin: 0px;
+    margin-top: 0px;
+    /* background-color: #f5f3f3; */
+  }
+  .card-img{
+    margin-top: 20px;
+    max-width: 150px;
+    max-height: 150px;
+    align-items: center;
+    align-self: center;
+  } 
+  .card-img:hover{
+    transition: .3s ease-in-out;
+    transform: scale(1.6);
+  }
+  .user {
+    text-align: center;
+  }
+
+  .search-area {
+    text-align: center;
+
+  }
+
+  .card {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 25%) 0px 3px 10px -5px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 35px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .card-title {
+    text-align: center;
+  }
+
+  .cart-zone {
+    text-align: end;
+  }
 </style>
+
 </html>
