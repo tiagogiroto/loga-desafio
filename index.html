@@ -21,13 +21,17 @@
       <div class="col cart-zone">
         <span class="cart">Carrinho</span>
       </div>
-      <input type="text" placeholder="Digite o nome do produto">
+      <div class="row">
+        <input type="text" class="form-control" placeholder="Digite o nome do produto">
+        <button onclick="" class="btn btn-primary">Buscar</button>
+      </div>
     </div>
     <div class="row g-3 " id="card-generate">
       <!-- card generate inside -->
     </div>
   </div>
 
+  <button onclick="takeData()">POST METHOD</button>
   <div class="teste">
     <div id="demo">
 
@@ -37,87 +41,122 @@
 </body>
 
 <script>
+  
+  var data = [];
+
+  function postCarrinho(){
+
+    fetch('http://localhost:3000/data',{
+      method: 'POST',
+      mode:"no-cors",
+      headers: {
+                 "Content-Type": "application/json"
+            },
+            body: JSON.stringify('teste')
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))    //imprimir dados no console
+    .catch(err => console.log('Erro de solicitação', err));
+
+
+  }
+  
+  async function takeData(){
+    try {
+      const response = await fetch("http://localhost:3000/data");
+      data = await response.json();
+
+    // faz alguma coisa com os dados aqui
+  } catch (error) {
+    console.error(error);
+  }
+
+}
 
   var person_data = {
     name: "Tiago"
   };
-  var data = [
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-    {
-      img: "https://picsum.photos/200/300",
-      dados_principais:'dados principais',
-      descricao: 'descricao',
-      codigo_de_barras: '12356465',
-      quantidade: '12',
-      valor_produto: '25.90',
-      imagem: 'https://picsum.photos/200/300'
-    },
-  ]
 
-  function onLoadCard() {
+  
+
+  // var data = [
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  //   {
+  //     img: "https://picsum.photos/200/300",
+  //     dados_principais:'dados principais',
+  //     descricao: 'descricao',
+  //     codigo_de_barras: '12356465',
+  //     quantidade: '12',
+  //     valor_produto: '25.90',
+  //     imagem: 'https://picsum.photos/200/300'
+  //   },
+  // ]
+
+  async function onLoadCard() {
  
+    await takeData();
 
       var cardLoader = '';
 
@@ -146,6 +185,7 @@
 
 
   }
+
 
 </script>
 
