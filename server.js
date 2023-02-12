@@ -1,21 +1,94 @@
-var http = require('http');
-var fs = require ('fs');
+const express = require('express');
+const app = express();
+const port = 3000;
+const cors = require('cors');
+app.use(cors());
 
+app.get('/home', (req, res) => {
+    res.send('Você realizou uma requisição GET em /home');
+});
 
-const port = 8080;
-
-fs.readFile('./index.html', function(err, html){
-    if (err) throw err;    
-
-    http.createServer(function(request, response) {  
-        response.setHeader('Access-Control-Allow-Origin', '*');
-        response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-        response.setHeader('Access-Control-Allow-Credentials', true);
-
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(port);
+app.get('/data', (req, res) => {
+    res.json([
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 1',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 2',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 3',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 4',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 5',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 6',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 7',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+        {
+            img: "https://picsum.photos/200/300",
+            dados_principais: 'produto 8    ',
+            descricao: 'descricao',
+            codigo_de_barras: '12356465',
+            quantidade: '12',
+            valor_produto: '25.90',
+            imagem: 'https://picsum.photos/200/300'
+        },
+    ])
 })
 
+app.post ( '/carrinho' ,(req,res)=>{
+    res.json({'teste':'teste'});
+})
+
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+});
